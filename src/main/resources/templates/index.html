@@ -1,43 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="appCliente"> 
 <head>
+<base href="/">
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-		<script type="text/javascript">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
 		
+		<script src="../static/js/app.js"></script>
+		<script  src="../static/js/controller/cliente-controller.js"></script>
+		<script  src="../static/js/controller/cidade-controller.js"></script>
+		<script src="../static/js/controller/estado-controller.js"></script>
+		<script src="../static/js/controller/main-controller.js"></script>
+		<script src="../static/js/controller/cliente-detalhe-controller.js"></script>
+		<script src="../static/js/controller/login-controller.js"></script>
 		
-		function carregarDados() {
-			 
-			const xhttp = new XMLHttpRequest();
-			  xhttp.onload = function() {
-			    document.getElementById("demo").innerHTML = this.responseText;
-			    }
-			  xhttp.open("GET", "http://localhost:8080/clientes", true);
-			  xhttp.send();
-			}
-		
-		</script>
-
-
 </head>
-
-<body>
-
-	<button type="button" onclick="carregarDados()"> carregar</button>
-	
-		
-		<div id="display"></div>
-
+  
+<body ng-controller="mainController">
+Olá
+  
+  <a href="/clientes">Clientes</a>
+  
+  <a href="/cidades">Cidades</a>
+  
+  <a href="/estados">Estados</a>
+  
+  <a href="/login">Login</a>
+  
+  <br/>
+  Path: {{$location.path()}}
+  
+  Template URL: {{$route.current.templateUrl}}
+  
+  Parametros: {{$routeParams}}
+  
+  <div ng-view></div>
+  
+  
 </body>
-
-		<script type="text/javascript">
-		
-		
-		
-		</script>
-
-
-
-
 </html>

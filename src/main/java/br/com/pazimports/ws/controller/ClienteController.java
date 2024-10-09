@@ -45,6 +45,15 @@ public class ClienteController {
 	return new ResponseEntity<>(clientesBuscados, HttpStatus.OK);
 		
 	}
+	
+	@RequestMapping(method=RequestMethod.GET, value="/clientes/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Cliente> buscarClientePorId(@PathVariable Integer id){
+		
+		Optional<Cliente> cliente = clienteService.buscaPorId(id);
+		
+		return new ResponseEntity<Cliente>(HttpStatus.OK);
+	}
+	
 
 
 	@RequestMapping(method=RequestMethod.DELETE, value = "/clientes/{id}")
@@ -70,7 +79,7 @@ public class ClienteController {
 		
 		return new ResponseEntity<>(clienteAlterado, HttpStatus.OK);
 	}
-
+	
 
 }
 
