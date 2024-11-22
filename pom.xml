@@ -42,6 +42,27 @@
 		</dependency>
 		
 		
+	<dependency>
+    <groupId>io.jsonwebtoken</groupId>
+    <artifactId>jjwt-api</artifactId>
+    <version>0.11.5</version>
+</dependency>
+<dependency>
+    <groupId>io.jsonwebtoken</groupId>
+    <artifactId>jjwt-impl</artifactId>
+    <version>0.11.5</version>
+    <scope>runtime</scope>
+</dependency>
+<dependency>
+    <groupId>io.jsonwebtoken</groupId>
+    <artifactId>jjwt-jackson</artifactId>
+    <version>0.11.5</version> <!-- ou a versão mais recente -->
+    <scope>runtime</scope>
+</dependency>
+
+
+	
+	
 		
 		<dependency>
 			<groupId>org.postgresql</groupId>
@@ -75,7 +96,23 @@
 	</dependencies>
 
 	<build>
-		<plugins>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-dependency-plugin</artifactId>
+            
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>analyze</goal>
+                    </goals>
+                    <configuration>
+                        <failOnWarning>true</failOnWarning>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
+	
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>

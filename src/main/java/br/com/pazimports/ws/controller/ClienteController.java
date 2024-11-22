@@ -19,6 +19,7 @@ import br.com.pazimports.ws.model.Cliente;
 import br.com.pazimports.ws.service.ClienteService;
 
 @RestController
+@RequestMapping("/admin")
 public class ClienteController {
 	
 	@Autowired
